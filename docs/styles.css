@@ -1,0 +1,366 @@
+:root {
+  --bg: #070b14;
+  --surface: rgba(16, 24, 40, 0.62);
+  --text: #e9efff;
+  --muted: #adbbd6;
+  --accent: #00d9ff;
+  --accent2: #ff6a3d;
+  --line: rgba(255, 255, 255, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Space Grotesk", sans-serif;
+  background: radial-gradient(circle at 10% 10%, #182239 0%, var(--bg) 35%, #03050a 100%);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+body.light {
+  --bg: #edf2ff;
+  --surface: rgba(255, 255, 255, 0.65);
+  --text: #101526;
+  --muted: #54607a;
+  --line: rgba(18, 28, 52, 0.14);
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 2px 2px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-orb {
+  position: fixed;
+  width: 34vmax;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: -1;
+  animation: float 12s ease-in-out infinite;
+}
+
+.orb-a {
+  top: -10vmax;
+  left: -8vmax;
+  background: #00d9ff;
+}
+
+.orb-b {
+  right: -10vmax;
+  bottom: -10vmax;
+  background: #ff6a3d;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(30px) translateX(18px);
+  }
+}
+
+.topbar {
+  position: sticky;
+  top: 1rem;
+  z-index: 90;
+  width: min(1120px, calc(100% - 2rem));
+  margin: 1rem auto 0;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 800;
+  font-family: Sora, sans-serif;
+}
+
+.nav {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  text-decoration: none;
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #51ffd8);
+  border: none;
+  color: #001320;
+  font-weight: 700;
+}
+
+.btn-subtle {
+  backdrop-filter: blur(7px);
+}
+
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+}
+
+.section-pad {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+.scene {
+  min-height: 70vh;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.room {
+  position: relative;
+  min-height: 380px;
+  border-radius: 1.5rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(30, 36, 54, 0.18) 100%);
+  overflow: hidden;
+}
+
+.desk {
+  position: absolute;
+  bottom: 2rem;
+  left: 7%;
+  right: 7%;
+  height: 22%;
+  border-radius: 1rem;
+  background: linear-gradient(180deg, #1f2f46, #0a111f);
+  transform: perspective(900px) rotateX(24deg);
+}
+
+.lamp {
+  position: absolute;
+  left: 52%;
+  bottom: 26%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 170px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.lamp-head,
+.lamp-arm,
+.lamp-base {
+  position: absolute;
+  display: block;
+  background: #9bb2da;
+}
+
+.lamp-head {
+  width: 56px;
+  height: 24px;
+  border-radius: 18px;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+}
+
+.lamp-arm {
+  width: 8px;
+  height: 82px;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%) rotate(18deg);
+  transform-origin: top;
+}
+
+.lamp-base {
+  width: 64px;
+  height: 12px;
+  border-radius: 10px;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.light-cone {
+  position: absolute;
+  top: 28%;
+  left: 52%;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 350px solid rgba(255, 244, 153, 0);
+  transform: translateX(-50%);
+  transition: border-top-color 0.45s ease;
+  pointer-events: none;
+}
+
+.room.lit .light-cone {
+  border-top-color: rgba(255, 244, 153, 0.28);
+}
+
+.hero-copy h1 {
+  font-family: Sora, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  margin: 0.4rem 0 0.9rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.typed {
+  color: var(--muted);
+  min-height: 1.4em;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.content-wrap.hidden {
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(5px);
+  transition: opacity 0.45s ease, filter 0.45s ease;
+}
+
+.content-wrap {
+  opacity: 1;
+  filter: blur(0);
+  transition: opacity 0.45s ease, filter 0.45s ease;
+}
+
+h2 {
+  font-family: Sora, sans-serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.chips {
+  color: var(--accent);
+}
+
+.contact-form {
+  border-radius: 1rem;
+  padding: 1rem;
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border-radius: 0.7rem;
+  border: 1px solid var(--line);
+  background: rgba(5, 9, 20, 0.38);
+  color: var(--text);
+  padding: 0.8rem;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.socials a,
+.card a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 120;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.25), rgba(0, 217, 255, 0));
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 900px) {
+  .scene {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    border-radius: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    justify-content: center;
+  }
+}
