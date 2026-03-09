@@ -116,54 +116,229 @@
 
 .lamp-zone {
   position: absolute;
-  left: 0;
-  bottom: 120px;
-  width: 370px;
-  height: 360px;
+  left: 34px;
+  bottom: 112px;
+  width: 260px;
+  height: 290px;
   z-index: 12;
 }
 
-.lamp-canvas {
+.lamp-illustration {
+  position: relative;
   width: 100%;
   height: 100%;
+  transform-origin: bottom center;
+  transition: filter 0.45s ease;
+}
+
+.lamp-illustration.is-off {
+  filter: grayscale(0.98) brightness(0.78);
+}
+
+.lamp-shade {
+  position: absolute;
+  left: 50%;
+  top: 18px;
+  width: 146px;
+  height: 72px;
+  border-radius: 20px 20px 30px 30px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #bfd0ba 0%, #aebfaa 100%);
+  box-shadow: inset 0 -8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.lamp-on .lamp-shade {
+  background: linear-gradient(180deg, #cadbc7 0%, #b8c9b2 100%);
+}
+
+.lamp-off .lamp-shade {
+  background: linear-gradient(180deg, #8d9391 0%, #747a78 100%);
+}
+
+.lamp-shade::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 142px;
+  height: 18px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: rgba(242, 233, 203, 0.86);
+}
+
+.lamp-off .lamp-shade::after {
+  background: rgba(172, 172, 172, 0.45);
+}
+
+.eye {
+  position: absolute;
+  top: 28px;
+  width: 18px;
+  height: 8px;
+  border-top: 3px solid #102331;
+  border-radius: 999px;
+}
+
+.eye-left {
+  left: 34px;
+}
+
+.eye-right {
+  right: 34px;
+}
+
+.mouth {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  width: 24px;
+  height: 14px;
+  border-radius: 0 0 14px 14px;
+  transform: translateX(-50%);
+  background: #ef5f72;
+}
+
+.mouth::before,
+.mouth::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #101723;
+}
+
+.mouth::before {
+  left: -8px;
+}
+
+.mouth::after {
+  right: -8px;
+}
+
+.lamp-glow {
+  position: absolute;
+  left: 50%;
+  top: 86px;
+  width: 170px;
+  height: 62px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(255, 244, 206, 0.95) 0%, rgba(255, 244, 206, 0.55) 52%, rgba(255, 244, 206, 0) 84%);
+  opacity: 0;
+  filter: blur(2px);
+  transition: opacity 0.5s ease;
+}
+
+.lamp-on .lamp-glow {
+  opacity: 1;
+}
+
+.lamp-leg {
+  position: absolute;
+  top: 88px;
+  width: 6px;
+  height: 100px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f7f9ff 0%, #bbc7dc 100%);
+}
+
+.lamp-leg-left {
+  left: 67px;
+  transform: rotate(16deg);
+}
+
+.lamp-leg-right {
+  right: 67px;
+  transform: rotate(-16deg);
+}
+
+.lamp-stem {
+  position: absolute;
+  left: 50%;
+  top: 108px;
+  width: 18px;
+  height: 96px;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #f9fbff 0%, #cdd7e8 100%);
+}
+
+.lamp-base {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  width: 118px;
+  height: 24px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #f4f8ff 0%, #c8d2e0 100%);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
 
 .rope-wrap {
   position: absolute;
-  top: 64px;
-  left: 214px;
+  top: -12px;
+  left: 50%;
   border: 0;
   background: transparent;
   padding: 0;
+  transform-origin: top center;
+  transform: translateX(72px);
   cursor: grab;
 }
 
 .rope {
   display: block;
-  width: 3px;
-  height: 126px;
-  background: linear-gradient(180deg, #dde9ff, #8ea4c8);
+  width: 4px;
+  height: 130px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f6f8ff 0%, #8ea4c8 100%);
 }
 
 .rope-knob {
   display: block;
   margin-left: -7px;
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  background: #f0f5ff;
+  background: #eef4ff;
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.rope-wrap.waving {
+  animation: ropeWave 0.7s ease;
+}
+
+@keyframes ropeWave {
+  0% {
+    transform: translateX(72px) rotate(0deg);
+  }
+  20% {
+    transform: translateX(72px) rotate(7deg);
+  }
+  50% {
+    transform: translateX(72px) rotate(-6deg);
+  }
+  75% {
+    transform: translateX(72px) rotate(4deg);
+  }
+  100% {
+    transform: translateX(72px) rotate(0deg);
+  }
 }
 
 @media (max-width: 1024px) {
   .lamp-zone {
     left: 50%;
     transform: translateX(-50%);
+    bottom: 94px;
   }
 
   .rope-wrap {
-    left: 50%;
-    transform: translateX(60px);
+    transform: translateX(74px);
   }
 
   .beam-cut {
@@ -178,6 +353,16 @@
 }
 
 @media (max-width: 760px) {
+  .lamp-zone {
+    width: min(250px, 74vw);
+    height: min(280px, 78vw);
+    bottom: 80px;
+  }
+
+  .rope-wrap {
+    transform: translateX(62px);
+  }
+
   .desk {
     height: 120px;
     bottom: 40px;
