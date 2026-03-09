@@ -3,13 +3,16 @@
   inset: 0;
   pointer-events: none;
   z-index: 7;
-  background: radial-gradient(
-    280px circle at var(--mouse-x) var(--mouse-y),
-    rgba(0, 0, 0, 0.08) 0%,
-    rgba(0, 0, 0, 0.58) 44%,
-    rgba(0, 0, 0, 0.88) 70%,
-    rgba(0, 0, 0, 0.94) 100%
-  );
+  background: rgba(0, 0, 0, 0.88);
+  transition: opacity 0.7s ease;
+}
+
+.lamp-on .reveal-mask {
+  opacity: 0.08;
+}
+
+.lamp-off .reveal-mask {
+  opacity: 1;
 }
 
 .beam-cut {
@@ -22,20 +25,30 @@
   z-index: 4;
   clip-path: polygon(0 0, 22% 0, 100% 100%, 8% 100%);
   transform-origin: top left;
-  transform: rotate(var(--lamp-angle));
+  transform: rotate(3deg);
   background: linear-gradient(
     110deg,
-    rgba(255, 230, 156, calc(0.24 + var(--light-boost) * 0.26)),
-    rgba(255, 230, 156, calc(0.1 + var(--light-boost) * 0.1)),
+    rgba(255, 230, 156, 0.42),
+    rgba(255, 230, 156, 0.2),
     rgba(255, 230, 156, 0)
   );
   filter: blur(1px);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.lamp-on .beam-cut {
+  opacity: 1;
+}
+
+.lamp-off .beam-cut {
+  opacity: 0;
 }
 
 .lamp-light {
   position: absolute;
-  top: calc(var(--mouse-y) - 260px);
-  left: calc(var(--mouse-x) - 260px);
+  top: 80px;
+  left: 90px;
   width: 520px;
   height: 520px;
   border-radius: 50%;
@@ -54,7 +67,7 @@
 }
 
 .lamp-light.on {
-  opacity: calc(0.76 + var(--light-boost) * 0.24);
+  opacity: 0.9;
 }
 
 .desk {
@@ -155,7 +168,12 @@
 
   .beam-cut {
     left: 50%;
-    transform: translateX(-48%) rotate(var(--lamp-angle));
+    transform: translateX(-48%) rotate(3deg);
+  }
+
+  .lamp-light {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 

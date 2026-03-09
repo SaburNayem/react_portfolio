@@ -6,7 +6,7 @@ const projects = [
   { title: "Task Orbit", text: "Productivity platform with NestJS backend and modern dashboard UI." }
 ];
 
-export default function Projects({ lampOn, boostLight, normalizeLight }) {
+export default function Projects({ lampOn, boostLight = () => {}, normalizeLight = () => {} }) {
   return (
     <section id="projects" className="projects">
       {projects.map((project, i) => (
