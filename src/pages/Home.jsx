@@ -1,19 +1,20 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import RopePull from "../components/lamp/RopePull";
-import LampLight from "../components/lamp/LampLight";
-import Background from "../components/effects/Background";
-import Hero from "../components/portfolio/Hero";
-import About from "../components/portfolio/About";
-import Skills from "../components/portfolio/Skills";
-import Projects from "../components/portfolio/Projects";
-import Contact from "../components/portfolio/Contact";
+import { lazy, Suspense, useEffect, useRef } from "react";
+import RopePull from "../components/RopePull";
+import LightOverlay from "../components/LightOverlay";
+import BackgroundGrid from "../components/BackgroundGrid";
+import Hero from "../sections/Hero";
+import About from "../sections/About";
+import Skills from "../sections/Skills";
+import Projects from "../sections/Projects";
+import Experience from "../sections/Experience";
+import Contact from "../sections/Contact";
+import useLampToggle from "../hooks/useLampToggle";
+import { animateRopePull } from "../utils/animations";
 
-const LampModel = lazy(() => import("../components/lamp/LampModel"));
-const DustParticles = lazy(() => import("../components/effects/Particles"));
+const LampModel = lazy(() => import("../components/LampModel"));
 
 export default function Home() {
-  const [lampOn, setLampOn] = useState(false);
+  const { lampOn, toggleLamp } = useLampToggle(false);
   const stageRef = useRef(null);
   const ropeRef = useRef(null);
   const lampAimRef = useRef(0);
@@ -93,11 +94,9 @@ export default function Home() {
     };
   }, []);
 
-  const toggleLamp = () => {
-    setLampOn((prev) => !prev);
-    if (ropeRef.current) {
-      gsap.fromTo(ropeRef.current, { y: 0 }, { y: 20, duration: 0.14, yoyo: true, repeat: 1 });
-    }
+  const onToggleLamp = () => {
+    toggleLamp();
+    animateRopePull(ropeRef.current);
   };
 
   const boostLight = () => {
@@ -119,12 +118,9 @@ export default function Home() {
 
   return (
     <main id="hero" className="home-page">
-      <Background />
+      <BackgroundGrid />
       <section ref={stageRef} className={`room ${lampOn ? "lamp-on" : "lamp-off"}`}>
-        <LampLight lampOn={lampOn} />
-        <Suspense fallback={null}>
-          <DustParticles lampOn={lampOn} />
-        </Suspense>
+        <LightOverlay lampOn={lampOn} />
 
         <div className="reveal-mask" />
         <div className="beam-cut" />
@@ -157,7 +153,7 @@ export default function Home() {
             <LampModel lampOn={lampOn} aimRef={lampAimRef} />
           </Suspense>
           <div ref={ropeRef}>
-            <RopePull toggleLamp={toggleLamp} />
+            <RopePull toggleLamp={onToggleLamp} />
           </div>
         </div>
 
@@ -166,6 +162,7 @@ export default function Home() {
           <About lampOn={lampOn} />
           <Skills lampOn={lampOn} />
           <Projects lampOn={lampOn} boostLight={boostLight} normalizeLight={normalizeLight} />
+          <Experience lampOn={lampOn} />
           <Contact lampOn={lampOn} />
         </section>
       </section>
