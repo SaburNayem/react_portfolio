@@ -368,3 +368,22 @@
     bottom: 40px;
   }
 }
+
+@media (max-width: 420px) {
+  .lamp-zone {
+    width: min(228px, 76vw);
+    height: min(252px, 84vw);
+    bottom: 96px;
+  }
+
+  .rope-wrap {
+    top: -22px;
+    transform: translateX(54px);
+  }
+
+  .beam-cut {
+    top: 132px;
+    width: 420px;
+    height: 360px;
+  }
+}
