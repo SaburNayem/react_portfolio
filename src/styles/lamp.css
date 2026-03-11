@@ -333,7 +333,7 @@
   position: absolute;
   top: 96px;
   left: 50%;
-  z-index: 1;
+  z-index: 0;
   border: 0;
   background: transparent;
   padding: 0;
@@ -343,11 +343,17 @@
 }
 
 .lamp-shade {
-  z-index: 3;
+  z-index: 4;
 }
 
 .lamp-shade-inner,
 .lamp-glow {
+  z-index: 3;
+}
+
+.lamp-pole,
+.lamp-base,
+.lamp-table-top {
   z-index: 2;
 }
 
