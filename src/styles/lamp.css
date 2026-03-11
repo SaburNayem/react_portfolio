@@ -338,7 +338,7 @@
   background: transparent;
   padding: 0;
   transform-origin: top center;
-  transform: translateX(-116px);
+  transform: translateX(-96px);
   cursor: grab;
 }
 
@@ -382,19 +382,19 @@
 
 @keyframes ropeWave {
   0% {
-    transform: translateX(-116px);
+    transform: translateX(-96px);
   }
   20% {
-    transform: translateX(-116px);
+    transform: translateX(-96px);
   }
   50% {
-    transform: translateX(-116px);
+    transform: translateX(-96px);
   }
   75% {
-    transform: translateX(-116px);
+    transform: translateX(-96px);
   }
   100% {
-    transform: translateX(-116px);
+    transform: translateX(-96px);
   }
 }
 
@@ -444,7 +444,7 @@
   }
 
   .rope-wrap {
-    transform: translateX(-104px);
+    transform: translateX(-86px);
   }
 
   .beam-cut {
@@ -466,7 +466,7 @@
   }
 
   .rope-wrap {
-    transform: translateX(-90px);
+    transform: translateX(-76px);
   }
 
   .desk {
@@ -484,7 +484,7 @@
 
   .rope-wrap {
     top: 36px;
-    transform: translateX(-78px);
+    transform: translateX(-66px);
   }
 
   .beam-cut {
