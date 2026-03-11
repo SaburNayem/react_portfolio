@@ -145,7 +145,7 @@
 .lamp-shade {
   position: absolute;
   left: 50%;
-  top: 8px;
+  top: 6px;
   width: 200px;
   height: 110px;
   transform: translateX(-50%);
@@ -168,27 +168,28 @@
   position: absolute;
   left: 22px;
   width: 156px;
-  height: 12px;
+  height: 16px;
   background: radial-gradient(ellipse at 50% 50%, #eef8f5 0%, #b6d0c8 70%, #9fbeb6 100%);
   border: 2px solid #5a6b67;
   border-radius: 50%;
 }
 
 .shade-top {
-  top: -6px;
+  top: -8px;
 }
 
 .shade-bottom {
   left: 10px;
   width: 180px;
-  bottom: -6px;
+  height: 14px;
+  bottom: -7px;
   border-top: none;
 }
 
 .lamp-shade-inner {
   position: absolute;
   left: 50%;
-  top: 114px;
+  top: 112px;
   width: 160px;
   height: 18px;
   border-radius: 50%;
@@ -281,7 +282,7 @@
 .lamp-pole {
   position: absolute;
   left: 50%;
-  top: 138px;
+  top: 148px;
   width: 16px;
   height: 132px;
   border-radius: 12px;
@@ -332,6 +333,7 @@
   position: absolute;
   top: 96px;
   left: 50%;
+  z-index: 1;
   border: 0;
   background: transparent;
   padding: 0;
@@ -340,12 +342,22 @@
   cursor: grab;
 }
 
+.lamp-shade {
+  z-index: 3;
+}
+
+.lamp-shade-inner,
+.lamp-glow {
+  z-index: 2;
+}
+
 .rope {
   display: block;
   width: 4px;
   height: 120px;
   border-radius: 999px;
   background: linear-gradient(180deg, #f6f8ff 0%, #8ea4c8 100%);
+  transform-origin: top center;
 }
 
 .rope-knob {
@@ -359,7 +371,7 @@
 }
 
 .rope-wrap.waving {
-  animation: ropeWave 0.7s ease;
+  animation: none;
 }
 
 @keyframes ropeWave {
@@ -367,16 +379,54 @@
     transform: translateX(-92px);
   }
   20% {
-    transform: translateX(-92px) translateY(8px);
+    transform: translateX(-92px);
   }
   50% {
-    transform: translateX(-92px) translateY(2px);
+    transform: translateX(-92px);
   }
   75% {
-    transform: translateX(-92px) translateY(6px);
+    transform: translateX(-92px);
   }
   100% {
     transform: translateX(-92px);
+  }
+}
+
+.rope-wrap.waving .rope {
+  animation: ropeExtend 0.7s ease;
+}
+
+.rope-wrap.waving .rope-knob {
+  animation: knobDrop 0.7s ease;
+}
+
+@keyframes ropeExtend {
+  0% {
+    transform: scaleY(1);
+  }
+  40% {
+    transform: scaleY(1.18);
+  }
+  70% {
+    transform: scaleY(1.08);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes knobDrop {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(22px);
+  }
+  70% {
+    transform: translateY(12px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
