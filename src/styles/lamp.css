@@ -24,10 +24,10 @@
 
 .beam-cut {
   position: absolute;
-  top: 140px;
-  left: 66px;
-  width: 360px;
-  height: 240px;
+  top: 132px;
+  left: 78px;
+  width: 300px;
+  height: 210px;
   pointer-events: none;
   z-index: 4;
   clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
@@ -35,9 +35,9 @@
   transform: rotate(0deg);
   background: linear-gradient(
     180deg,
-    rgba(255, 210, 130, 0.6),
-    rgba(255, 180, 90, 0.28),
-    rgba(255, 180, 90, 0)
+    rgba(255, 223, 164, 0.55),
+    rgba(255, 198, 120, 0.28),
+    rgba(255, 198, 120, 0)
   );
   filter: blur(1px);
   opacity: 0;
@@ -54,19 +54,19 @@
 
 .lamp-light {
   position: absolute;
-  top: 84px;
-  left: 10px;
-  width: 420px;
-  height: 420px;
+  top: 96px;
+  left: 40px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 224, 147, 0.44) 0%,
-    rgba(255, 224, 147, 0.2) 37%,
-    rgba(255, 224, 147, 0.06) 55%,
+    rgba(255, 234, 188, 0.52) 0%,
+    rgba(255, 214, 150, 0.24) 38%,
+    rgba(255, 214, 150, 0.08) 58%,
     transparent 78%
   );
-  filter: blur(30px);
+  filter: blur(22px);
   opacity: 0;
   transition: opacity 0.8s ease;
   pointer-events: none;
@@ -331,14 +331,14 @@
 
 .rope-wrap {
   position: absolute;
-  top: 96px;
+  top: 40px;
   left: 50%;
   z-index: 0;
   border: 0;
   background: transparent;
   padding: 0;
   transform-origin: top center;
-  transform: translateX(-92px);
+  transform: translateX(-116px) rotate(-6deg);
   cursor: grab;
 }
 
@@ -360,9 +360,9 @@
 .rope {
   display: block;
   width: 4px;
-  height: 120px;
+  height: 150px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #f6f8ff 0%, #8ea4c8 100%);
+  background: linear-gradient(180deg, #f6f8ff 0%, #9db0cf 100%);
   transform-origin: top center;
 }
 
@@ -382,19 +382,19 @@
 
 @keyframes ropeWave {
   0% {
-    transform: translateX(-92px);
+    transform: translateX(-116px) rotate(-6deg);
   }
   20% {
-    transform: translateX(-92px);
+    transform: translateX(-116px) rotate(-6deg);
   }
   50% {
-    transform: translateX(-92px);
+    transform: translateX(-116px) rotate(-6deg);
   }
   75% {
-    transform: translateX(-92px);
+    transform: translateX(-116px) rotate(-6deg);
   }
   100% {
-    transform: translateX(-92px);
+    transform: translateX(-116px) rotate(-6deg);
   }
 }
 
@@ -444,7 +444,7 @@
   }
 
   .rope-wrap {
-    transform: translateX(-84px);
+    transform: translateX(-104px) rotate(-6deg);
   }
 
   .beam-cut {
@@ -466,7 +466,7 @@
   }
 
   .rope-wrap {
-    transform: translateX(-76px);
+    transform: translateX(-90px) rotate(-6deg);
   }
 
   .desk {
@@ -483,13 +483,13 @@
   }
 
   .rope-wrap {
-    top: 92px;
-    transform: translateX(-68px);
+    top: 36px;
+    transform: translateX(-78px) rotate(-6deg);
   }
 
   .beam-cut {
-    top: 140px;
-    width: 340px;
-    height: 260px;
+    top: 132px;
+    width: 300px;
+    height: 210px;
   }
 }
