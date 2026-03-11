@@ -399,40 +399,40 @@
 }
 
 .rope-wrap.waving .rope {
-  animation: ropeExtend 0.7s ease;
+  animation: ropeSwing 0.7s ease;
 }
 
 .rope-wrap.waving .rope-knob {
-  animation: knobDrop 0.7s ease;
+  animation: knobSwing 0.7s ease;
 }
 
-@keyframes ropeExtend {
+@keyframes ropeSwing {
   0% {
-    transform: scaleY(1);
+    transform: rotate(0deg);
   }
-  40% {
-    transform: scaleY(1.18);
+  30% {
+    transform: rotate(-8deg);
   }
-  70% {
-    transform: scaleY(1.08);
+  60% {
+    transform: rotate(6deg);
   }
   100% {
-    transform: scaleY(1);
+    transform: rotate(0deg);
   }
 }
 
-@keyframes knobDrop {
+@keyframes knobSwing {
   0% {
-    transform: translateY(0);
+    transform: translateX(0);
   }
-  40% {
-    transform: translateY(22px);
+  30% {
+    transform: translateX(-8px);
   }
-  70% {
-    transform: translateY(12px);
+  60% {
+    transform: translateX(6px);
   }
   100% {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
