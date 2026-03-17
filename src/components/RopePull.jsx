@@ -18,6 +18,7 @@ export default function RopePull({ toggleLamp, waveToken }) {
       drag="y"
       dragConstraints={{ top: 0, bottom: 120 }}
       dragElastic={0.28}
+      dragSnapToOrigin
       onDragEnd={toggleLamp}
       whileTap={{ scaleY: 1.2 }}
       aria-label="Pull rope to toggle lamp"

@@ -1,5 +1,4 @@
 import { lazy, Suspense, useState } from "react";
-import RopePull from "../components/RopePull";
 import LightOverlay from "../components/LightOverlay";
 import BackgroundGrid from "../components/BackgroundGrid";
 import Hero from "../sections/Hero";
@@ -55,9 +54,8 @@ export default function Home() {
 
         <div className="lamp-zone">
           <Suspense fallback={null}>
-            <LampModel lampOn={lampOn} />
+            <LampModel lampOn={lampOn} toggleLamp={onToggleLamp} waveToken={waveToken} />
           </Suspense>
-          <RopePull toggleLamp={onToggleLamp} waveToken={waveToken} />
         </div>
 
         <section className={`portfolio-content ${lampOn ? "active" : ""}`}>
