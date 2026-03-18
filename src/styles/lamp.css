@@ -362,8 +362,8 @@
   z-index: 6;
   border: 0;
   background: transparent;
-  width: 42px;
-  padding: 0 16px 8px;
+  width: 34px;
+  padding: 0 12px 10px;
   transform-origin: top center;
   transform: translateX(var(--rope-shift));
   cursor: grab;
@@ -391,37 +391,36 @@
 
 .rope {
   display: block;
-  width: 3px;
-  height: 116px;
+  width: 2px;
+  height: 104px;
   margin: 0 auto;
   border-radius: 999px;
-  background: linear-gradient(180deg, #534028 0%, #bea06a 100%);
+  background: linear-gradient(180deg, #f8fbff 0%, #d7dee8 52%, #b4bfcd 100%);
+  box-shadow: 0 0 0 1px rgba(33, 43, 58, 0.12);
   transform-origin: top center;
 }
 
-.rope-knob {
+.rope-tail {
   display: block;
   margin: 0 auto;
+  width: 2px;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #edf4ff 0%, #cfd8e4 100%);
   transform: translateX(-1px);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #b18f57 0%, #72552f 100%);
-  border: 2px solid #5d4526;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.16);
 }
 
 .rope-wrap::before {
   content: "";
   position: absolute;
-  top: -18px;
+  top: -10px;
   left: 50%;
-  width: 22px;
-  height: 18px;
-  border-radius: 0 0 12px 12px;
+  width: 8px;
+  height: 12px;
+  border-radius: 0 0 8px 8px;
   transform: translateX(-50%);
-  background: radial-gradient(circle at 50% 0, rgba(255, 244, 222, 0.46), rgba(255, 244, 222, 0) 70%);
-  opacity: 0.7;
+  background: linear-gradient(180deg, rgba(247, 238, 214, 0.85) 0%, rgba(176, 138, 77, 0.5) 100%);
+  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -451,7 +450,7 @@
   animation: ropeSwing 0.7s ease;
 }
 
-.rope-wrap.waving .rope-knob {
+.rope-wrap.waving .rope-tail {
   animation: knobSwing 0.7s ease;
 }
 

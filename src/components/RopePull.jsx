@@ -24,7 +24,7 @@ export default function RopePull({ toggleLamp, waveToken }) {
       aria-label="Pull rope to toggle lamp"
     >
       <span className="rope" />
-      <span className="rope-knob" />
+      <span className="rope-tail" />
     </motion.button>
   );
 }
