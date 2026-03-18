@@ -122,7 +122,7 @@
 
 .lamp-zone {
   --lamp-scale: 1;
-  --rope-shift: -34px;
+  --rope-shift: -54px;
   --rope-top: 122px;
   position: absolute;
   top: 78px;
@@ -359,13 +359,16 @@
   position: absolute;
   top: var(--rope-top);
   left: 50%;
-  z-index: 2;
+  z-index: 6;
   border: 0;
   background: transparent;
-  padding: 0 8px;
+  width: 42px;
+  padding: 0 16px 8px;
   transform-origin: top center;
   transform: translateX(var(--rope-shift));
   cursor: grab;
+  touch-action: none;
+  user-select: none;
 }
 
 .lamp-shade {
@@ -390,6 +393,7 @@
   display: block;
   width: 3px;
   height: 116px;
+  margin: 0 auto;
   border-radius: 999px;
   background: linear-gradient(180deg, #534028 0%, #bea06a 100%);
   transform-origin: top center;
@@ -397,7 +401,8 @@
 
 .rope-knob {
   display: block;
-  margin-left: -8px;
+  margin: 0 auto;
+  transform: translateX(-1px);
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -483,7 +488,7 @@
 @media (max-width: 1024px) {
   .lamp-zone {
     --lamp-scale: 0.92;
-    --rope-shift: -30px;
+    --rope-shift: -48px;
     --rope-top: 122px;
     top: 84px;
   }
@@ -509,7 +514,7 @@
 @media (max-width: 760px) {
   .lamp-zone {
     --lamp-scale: 0.8;
-    --rope-shift: -27px;
+    --rope-shift: -42px;
     --rope-top: 118px;
     width: min(300px, 84vw);
     height: min(320px, 88vw);
@@ -530,7 +535,7 @@
 @media (max-width: 420px) {
   .lamp-zone {
     --lamp-scale: 0.68;
-    --rope-shift: -22px;
+    --rope-shift: -34px;
     --rope-top: 114px;
     width: min(260px, 86vw);
     height: min(280px, 92vw);
