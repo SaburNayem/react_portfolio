@@ -8,14 +8,7 @@
 
 .lamp-on .reveal-mask {
   opacity: 1;
-  background: radial-gradient(
-    120% 90% at 50% 8%,
-    rgba(255, 244, 224, 0.04) 0%,
-    rgba(0, 0, 0, 0.12) 18%,
-    rgba(0, 0, 0, 0.42) 38%,
-    rgba(0, 0, 0, 0.72) 62%,
-    rgba(0, 0, 0, 0.94) 100%
-  );
+  background: rgba(0, 0, 0, 0.42);
 }
 
 .lamp-off .reveal-mask {
@@ -55,17 +48,9 @@
 
 .lamp-light {
   position: absolute;
-  inset: -10% -14% -26% -14%;
-  background: radial-gradient(
-    ellipse at 50% 8%,
-    rgba(255, 248, 232, 1) 0%,
-    rgba(255, 233, 194, 0.52) 16%,
-    rgba(255, 218, 164, 0.24) 32%,
-    rgba(255, 209, 150, 0.1) 48%,
-    rgba(255, 209, 150, 0.03) 64%,
-    transparent 80%
-  );
-  filter: blur(54px);
+  inset: 0;
+  background: rgba(255, 228, 182, 0.24);
+  filter: blur(18px);
   opacity: 0;
   transition: opacity 0.8s ease;
   pointer-events: none;
@@ -506,15 +491,7 @@
   }
 
   .lamp-light {
-    inset: -10% -18% -20% -18%;
-    background: radial-gradient(
-      ellipse at 50% 10%,
-      rgba(255, 247, 229, 0.98) 0%,
-      rgba(255, 232, 194, 0.48) 16%,
-      rgba(255, 219, 165, 0.2) 32%,
-      rgba(255, 209, 150, 0.08) 50%,
-      transparent 72%
-    );
+    inset: 0;
   }
 }
 
@@ -534,8 +511,7 @@
   }
 
   .lamp-light {
-    inset: -6% -26% -12% -26%;
-    filter: blur(38px);
+    filter: blur(14px);
   }
 }
 
@@ -556,7 +532,6 @@
   }
 
   .lamp-light {
-    inset: -2% -32% -4% -32%;
-    filter: blur(30px);
+    filter: blur(10px);
   }
 }
