@@ -8,12 +8,12 @@
 
 .lamp-on .reveal-mask {
   opacity: 1;
-  background: rgba(0, 0, 0, 0.42);
+  background: rgba(0, 0, 0, 0.26);
 }
 
 .lamp-off .reveal-mask {
   opacity: 1;
-  background: rgba(0, 0, 0, 0.92);
+  background: rgba(0, 0, 0, 0.75);
 }
 
 .beam-cut {
@@ -58,7 +58,7 @@
 }
 
 .lamp-light.on {
-  opacity: 0.92;
+  opacity: 0.55;
 }
 
 .desk {
