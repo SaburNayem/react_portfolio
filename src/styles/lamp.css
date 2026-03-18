@@ -55,20 +55,17 @@
 
 .lamp-light {
   position: absolute;
-  top: 18px;
-  left: -14px;
-  width: 430px;
-  height: 350px;
-  border-radius: 50%;
+  inset: -18% -12% -24% -10%;
   background: radial-gradient(
-    ellipse at 34% 34%,
-    rgba(255, 243, 219, 0.9) 0%,
-    rgba(255, 227, 183, 0.5) 24%,
-    rgba(255, 214, 149, 0.18) 46%,
-    rgba(255, 214, 149, 0.05) 62%,
-    transparent 76%
+    ellipse at 22% 23%,
+    rgba(255, 247, 229, 0.98) 0%,
+    rgba(255, 232, 194, 0.55) 14%,
+    rgba(255, 219, 165, 0.26) 28%,
+    rgba(255, 209, 150, 0.11) 44%,
+    rgba(255, 209, 150, 0.03) 58%,
+    transparent 74%
   );
-  filter: blur(30px);
+  filter: blur(42px);
   opacity: 0;
   transition: opacity 0.8s ease;
   pointer-events: none;
@@ -124,6 +121,9 @@
 }
 
 .lamp-zone {
+  --lamp-scale: 1;
+  --rope-shift: 52px;
+  --rope-top: 2px;
   position: absolute;
   left: 24px;
   bottom: 104px;
@@ -136,6 +136,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  transform: scale(var(--lamp-scale));
   transform-origin: bottom center;
   transition: filter 0.45s ease;
 }
@@ -147,7 +148,7 @@
 .lamp-shade {
   position: absolute;
   left: 50%;
-  top: 8px;
+  top: 14px;
   width: 176px;
   height: 112px;
   transform: translateX(-50%);
@@ -191,7 +192,7 @@
 .lamp-neck {
   position: absolute;
   left: 50%;
-  top: 118px;
+  top: 124px;
   width: 22px;
   height: 20px;
   transform: translateX(-50%);
@@ -205,7 +206,7 @@
 .lamp-socket {
   position: absolute;
   left: 50%;
-  top: 134px;
+  top: 138px;
   width: 20px;
   height: 16px;
   transform: translateX(-50%);
@@ -218,7 +219,7 @@
 .lamp-bulb {
   position: absolute;
   left: 50%;
-  top: 144px;
+  top: 136px;
   width: 48px;
   height: 62px;
   transform: translateX(-50%);
@@ -239,7 +240,7 @@
 .lamp-shade-inner {
   position: absolute;
   left: 50%;
-  top: 92px;
+  top: 96px;
   width: 140px;
   height: 58px;
   border-radius: 50%;
@@ -261,19 +262,19 @@
 .lamp-glow {
   position: absolute;
   left: 50%;
-  top: 164px;
-  width: 210px;
-  height: 132px;
+  top: 150px;
+  width: 238px;
+  height: 148px;
   border-radius: 50% 50% 60% 60%;
   transform: translateX(-50%);
   background: radial-gradient(
     ellipse at 50% 4%,
-    rgba(255, 232, 180, 0.82) 0%,
-    rgba(255, 200, 110, 0.38) 46%,
+    rgba(255, 238, 196, 0.88) 0%,
+    rgba(255, 208, 116, 0.44) 46%,
     rgba(255, 200, 110, 0) 100%
   );
   opacity: 0;
-  filter: blur(12px);
+  filter: blur(16px);
   transition: opacity 0.5s ease;
 }
 
@@ -284,9 +285,9 @@
 .lamp-pole {
   position: absolute;
   left: 50%;
-  top: 194px;
+  top: 190px;
   width: 12px;
-  height: 86px;
+  height: 90px;
   border-radius: 10px;
   transform: translateX(-50%);
   background: linear-gradient(90deg, #bc8d45 0%, #6c451f 48%, #bf9650 100%);
@@ -354,19 +355,19 @@
 
 .rope-wrap {
   position: absolute;
-  top: 18px;
+  top: var(--rope-top);
   left: 50%;
-  z-index: 5;
+  z-index: 1;
   border: 0;
   background: transparent;
   padding: 0;
   transform-origin: top center;
-  transform: translateX(68px);
+  transform: translateX(var(--rope-shift));
   cursor: grab;
 }
 
 .lamp-shade {
-  z-index: 4;
+  z-index: 5;
 }
 
 .lamp-shade-inner,
@@ -385,22 +386,22 @@
 
 .rope {
   display: block;
-  width: 4px;
-  height: 128px;
+  width: 3px;
+  height: 142px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #f0ead8 0%, #a48a61 100%);
+  background: linear-gradient(180deg, #6a532f 0%, #b79863 100%);
   transform-origin: top center;
 }
 
 .rope-knob {
   display: block;
-  margin-left: -7px;
-  width: 18px;
-  height: 18px;
+  margin-left: -8px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: linear-gradient(180deg, #efe5cc 0%, #aa9064 100%);
-  border: 2px solid #7a6441;
-  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.18);
+  background: linear-gradient(180deg, #b18f57 0%, #72552f 100%);
+  border: 2px solid #5d4526;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.16);
 }
 
 .rope-wrap.waving {
@@ -465,13 +466,12 @@
 
 @media (max-width: 1024px) {
   .lamp-zone {
+    --lamp-scale: 0.92;
+    --rope-shift: 48px;
+    --rope-top: 8px;
     left: 50%;
     transform: translateX(-50%);
     bottom: 94px;
-  }
-
-  .rope-wrap {
-    transform: translateX(62px);
   }
 
   .beam-cut {
@@ -480,43 +480,57 @@
   }
 
   .lamp-light {
-    left: 50%;
-    transform: translateX(-50%);
+    inset: -10% -16% -22% -16%;
+    background: radial-gradient(
+      ellipse at 50% 22%,
+      rgba(255, 247, 229, 0.98) 0%,
+      rgba(255, 232, 194, 0.48) 16%,
+      rgba(255, 219, 165, 0.2) 32%,
+      rgba(255, 209, 150, 0.08) 48%,
+      transparent 68%
+    );
   }
 }
 
 @media (max-width: 760px) {
   .lamp-zone {
+    --lamp-scale: 0.8;
+    --rope-shift: 42px;
+    --rope-top: 14px;
     width: min(300px, 84vw);
     height: min(320px, 88vw);
     bottom: 80px;
-  }
-
-  .rope-wrap {
-    transform: translateX(58px);
   }
 
   .desk {
     height: 120px;
     bottom: 40px;
   }
+
+  .lamp-light {
+    inset: -8% -22% -18% -22%;
+    filter: blur(34px);
+  }
 }
 
 @media (max-width: 420px) {
   .lamp-zone {
+    --lamp-scale: 0.68;
+    --rope-shift: 34px;
+    --rope-top: 18px;
     width: min(260px, 86vw);
     height: min(280px, 92vw);
     bottom: 96px;
-  }
-
-  .rope-wrap {
-    top: 20px;
-    transform: translateX(50px);
   }
 
   .beam-cut {
     top: 132px;
     width: 300px;
     height: 210px;
+  }
+
+  .lamp-light {
+    inset: -4% -28% -12% -28%;
+    filter: blur(28px);
   }
 }
