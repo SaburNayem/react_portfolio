@@ -25,6 +25,7 @@ export default function Home() {
   const [waveToken, setWaveToken] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
+  const [layout, setLayout] = useState("desktop");
 
   const navLinks = useMemo(
     () => [
@@ -56,8 +57,24 @@ export default function Home() {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+    const updateLayout = () => {
+      const width = window.innerWidth;
+      if (width <= 760) {
+        setLayout("mobile");
+      } else if (width <= 1024) {
+        setLayout("tablet");
+      } else {
+        setLayout("desktop");
+      }
+    };
+    updateLayout();
+    window.addEventListener("resize", updateLayout);
+    return () => window.removeEventListener("resize", updateLayout);
+  }, []);
+
   return (
-    <main className="home-page">
+    <main className={`home-page ${layout}`} data-layout={layout}>
       <BackgroundGrid />
       <section className={`room ${lampOn ? "lamp-on" : "lamp-off"}`}>
         <LightOverlay lampOn={lampOn} />
@@ -78,13 +95,6 @@ export default function Home() {
               <span>{basicInfo.title}</span>
             </div>
           </div>
-          <nav className="site-nav">
-            {navLinks.map((item) => (
-              <a key={item.href} href={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
           <div className="header-actions">
             <button
               className="theme-toggle"
@@ -96,8 +106,13 @@ export default function Home() {
             <a className="btn ghost" href={basicInfo.resume}>
               Download CV
             </a>
-            <button className="menu-toggle" type="button" onClick={() => setIsMenuOpen(true)}>
-              Menu
+            <button
+              className="menu-toggle"
+              type="button"
+              aria-label="Open navigation"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <span className="burger" />
             </button>
           </div>
         </header>
