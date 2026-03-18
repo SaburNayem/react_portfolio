@@ -254,6 +254,25 @@ body {
 
 .site-nav {
   display: none;
+  gap: 0.6rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: 0.2s ease;
+}
+
+.site-nav a.active,
+.site-nav a:hover {
+  border-color: var(--border-soft);
+  color: var(--accent);
 }
 
 .header-actions {
@@ -281,6 +300,14 @@ body {
   justify-content: center;
   border-radius: 12px;
   position: relative;
+}
+
+[data-layout="desktop"] .site-nav {
+  display: flex;
+}
+
+[data-layout="desktop"] .menu-toggle {
+  display: none;
 }
 
 .burger,

@@ -82,6 +82,18 @@ export default function SiteLayout() {
               <span>{basicInfo.title}</span>
             </div>
           </div>
+          <nav className="site-nav">
+            {navLinks.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) => (isActive ? "active" : "")}
+                end={item.to === "/"}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
           <div className="header-actions">
             <button
               className="theme-toggle"
