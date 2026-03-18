@@ -356,6 +356,7 @@
 }
 
 .rope-wrap {
+  --pull-distance: 0px;
   position: absolute;
   top: var(--rope-top);
   left: 50%;
@@ -392,22 +393,24 @@
 .rope {
   display: block;
   width: 2px;
-  height: 104px;
+  height: calc(104px + var(--pull-distance));
   margin: 0 auto;
   border-radius: 999px;
   background: linear-gradient(180deg, #f8fbff 0%, #d7dee8 52%, #b4bfcd 100%);
   box-shadow: 0 0 0 1px rgba(33, 43, 58, 0.12);
   transform-origin: top center;
+  transition: height 0.2s ease;
 }
 
 .rope-tail {
   display: block;
   margin: 0 auto;
   width: 2px;
-  height: 18px;
+  height: calc(18px + (var(--pull-distance) * 0.18));
   border-radius: 999px;
   background: linear-gradient(180deg, #edf4ff 0%, #cfd8e4 100%);
   transform: translateX(-1px);
+  transition: height 0.2s ease;
 }
 
 .rope-wrap::before {
@@ -426,6 +429,11 @@
 
 .rope-wrap.waving {
   animation: none;
+}
+
+.rope-wrap.pulling .rope,
+.rope-wrap.pulling .rope-tail {
+  transition: none;
 }
 
 @keyframes ropeWave {
@@ -447,11 +455,11 @@
 }
 
 .rope-wrap.waving .rope {
-  animation: ropeSwing 0.7s ease;
+  animation: ropeSwing 0.8s ease;
 }
 
 .rope-wrap.waving .rope-tail {
-  animation: knobSwing 0.7s ease;
+  animation: knobSwing 0.8s ease;
 }
 
 @keyframes ropeSwing {
