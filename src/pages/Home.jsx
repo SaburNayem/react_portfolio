@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import Hero from "../sections/Hero";
 import { achievements, basicInfo, projects, services, stats } from "../data/portfolioData";
 
@@ -23,9 +23,9 @@ export default function Home() {
             <a className="btn primary" href={basicInfo.resume}>
               Download CV
             </a>
-            <a className="btn ghost" href="/react_portfolio/projects">
+            <Link className="btn ghost" to="/projects">
               View Projects
-            </a>
+            </Link>
           </div>
         </div>
         <div className="home-stats">
@@ -49,9 +49,9 @@ export default function Home() {
             ))}
           </div>
           <div className="home-cta">
-            <a className="btn ghost" href="/react_portfolio/services">
+            <Link className="btn ghost" to="/services">
               See All Services
-            </a>
+            </Link>
           </div>
         </div>
         <div className="home-col">
@@ -62,9 +62,9 @@ export default function Home() {
             ))}
           </ul>
           <div className="home-cta">
-            <a className="btn ghost" href="/react_portfolio/achievements">
+            <Link className="btn ghost" to="/achievements">
               More Achievements
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -72,9 +72,9 @@ export default function Home() {
       <section className={`panel home-projects ${lampOn ? "visible" : "hidden"}`}>
         <div className="section-head">
           <h3>Featured Projects</h3>
-          <a className="btn ghost" href="/react_portfolio/projects">
+          <Link className="btn ghost" to="/projects">
             View All
-          </a>
+          </Link>
         </div>
         <div className="projects-grid">
           {highlightProjects.map((project) => (

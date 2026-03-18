@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import SiteLayout from "./layouts/SiteLayout";
 import Home from "./pages/Home";
 import BasicPage from "./pages/BasicPage";
@@ -18,7 +18,7 @@ import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
-    <BrowserRouter basename="/react_portfolio">
+    <HashRouter>
       <Routes>
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />
@@ -38,7 +38,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
