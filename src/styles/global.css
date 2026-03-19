@@ -661,11 +661,13 @@ p {
 
 .hero-profile img,
 .avatar-fallback {
-  width: min(240px, 70vw);
-  height: min(240px, 70vw);
+  width: min(320px, 70vw);
+  max-width: 100%;
+  height: auto;
+  max-height: min(70vh, 720px);
   border-radius: 24px;
   border: 2px solid var(--border-soft);
-  object-fit: cover;
+  object-fit: contain;
   background: linear-gradient(135deg, rgba(110, 230, 255, 0.35), rgba(255, 192, 120, 0.35));
 }
 
@@ -674,6 +676,7 @@ p {
   place-items: center;
   gap: 0.3rem;
   color: var(--text-primary);
+  aspect-ratio: 1 / 1;
 }
 
 .avatar-fallback span {
@@ -1052,8 +1055,8 @@ p {
 
 [data-layout="desktop"] .hero-profile img,
 [data-layout="desktop"] .avatar-fallback {
-  width: min(300px, 30vw);
-  height: min(300px, 30vw);
+  width: min(420px, 32vw);
+  max-height: min(76vh, 820px);
   border-radius: 28px;
 }
 
