@@ -341,20 +341,20 @@
 }
 
 .rope-wrap {
-  --pull-distance: 0px;
   position: absolute;
   top: var(--rope-top);
   left: 50%;
   z-index: 6;
   border: 0;
   background: transparent;
-  width: 34px;
-  padding: 0 12px 10px;
-  transform-origin: top center;
+  width: 140px;
+  height: 270px;
+  padding: 0;
   transform: translateX(var(--rope-shift));
   cursor: grab;
   touch-action: none;
   user-select: none;
+  appearance: none;
 }
 
 .lamp-shade {
@@ -375,105 +375,73 @@
   z-index: 2;
 }
 
+.rope-anchor {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 12px;
+  height: 14px;
+  border-radius: 0 0 8px 8px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(247, 238, 214, 0.9) 0%, rgba(176, 138, 77, 0.65) 100%);
+  box-shadow: 0 1px 1px rgba(68, 47, 18, 0.28);
+  pointer-events: none;
+}
+
+.rope-body {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  transform: translateX(-50%) rotate(var(--rope-angle, 0deg));
+  will-change: transform;
+}
+
 .rope {
   display: block;
   width: 2px;
-  height: calc(104px + var(--pull-distance));
-  margin: 0 auto;
+  min-height: 104px;
   border-radius: 999px;
   background: linear-gradient(180deg, #f8fbff 0%, #d7dee8 52%, #b4bfcd 100%);
   box-shadow: 0 0 0 1px rgba(33, 43, 58, 0.12);
   transform-origin: top center;
-  transition: height 0.2s ease;
 }
 
 .rope-tail {
   display: block;
-  margin: 0 auto;
-  width: 2px;
-  height: calc(18px + (var(--pull-distance) * 0.18));
-  border-radius: 999px;
-  background: linear-gradient(180deg, #edf4ff 0%, #cfd8e4 100%);
-  transform: translateX(-1px);
-  transition: height 0.2s ease;
-}
-
-.rope-wrap::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  width: 8px;
-  height: 12px;
-  border-radius: 0 0 8px 8px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, rgba(247, 238, 214, 0.85) 0%, rgba(176, 138, 77, 0.5) 100%);
-  opacity: 0.9;
-  pointer-events: none;
+  width: 24px;
+  height: 24px;
+  margin-top: -1px;
+  border-radius: 50%;
+  border: 2px solid rgba(123, 84, 30, 0.72);
+  background: radial-gradient(circle at 35% 30%, #fff0ca 0%, #e0b46f 55%, #b07731 100%);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateX(var(--pull-x, 0px));
 }
 
 .rope-wrap.waving {
   animation: none;
 }
 
-.rope-wrap.pulling .rope,
-.rope-wrap.pulling .rope-tail {
-  transition: none;
-}
-
-@keyframes ropeWave {
-  0% {
-    transform: translateX(-96px);
-  }
-  20% {
-    transform: translateX(-96px);
-  }
-  50% {
-    transform: translateX(-96px);
-  }
-  75% {
-    transform: translateX(-96px);
-  }
-  100% {
-    transform: translateX(-96px);
-  }
-}
-
-.rope-wrap.waving .rope {
+.rope-wrap.waving .rope-body {
   animation: ropeSwing 0.8s ease;
-}
-
-.rope-wrap.waving .rope-tail {
-  animation: knobSwing 0.8s ease;
 }
 
 @keyframes ropeSwing {
   0% {
-    transform: rotate(0deg);
+    transform: translateX(-50%) rotate(0deg);
   }
   30% {
-    transform: rotate(-8deg);
+    transform: translateX(-50%) rotate(-8deg);
   }
   60% {
-    transform: rotate(6deg);
+    transform: translateX(-50%) rotate(6deg);
   }
   100% {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes knobSwing {
-  0% {
-    transform: translateX(0);
-  }
-  30% {
-    transform: translateX(-8px);
-  }
-  60% {
-    transform: translateX(6px);
-  }
-  100% {
-    transform: translateX(0);
+    transform: translateX(-50%) rotate(0deg);
   }
 }
 
