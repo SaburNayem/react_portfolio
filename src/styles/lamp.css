@@ -49,8 +49,8 @@
 .lamp-light {
   position: absolute;
   inset: 0;
-  background: rgba(255, 228, 182, 0.24);
-  filter: blur(18px);
+  background: rgba(255, 229, 186, 0.08);
+  filter: blur(24px);
   opacity: 0;
   transition: opacity 0.8s ease;
   pointer-events: none;
@@ -58,7 +58,7 @@
 }
 
 .lamp-light.on {
-  opacity: 0.55;
+  opacity: 0.12;
 }
 
 .desk {
@@ -479,7 +479,7 @@
   }
 
   .lamp-light {
-    filter: blur(14px);
+    filter: blur(18px);
   }
 }
 
@@ -500,6 +500,6 @@
   }
 
   .lamp-light {
-    filter: blur(10px);
+    filter: blur(14px);
   }
 }

@@ -5,16 +5,16 @@
   --mouse-y: 30%;
   --lamp-angle: 0deg;
   --light-boost: 0;
-  --bg-main: #040912;
+  --bg-main: #06101b;
   --bg-panel: rgba(10, 20, 36, 0.85);
   --bg-panel-strong: rgba(12, 24, 44, 0.92);
   --bg-glass: rgba(9, 18, 34, 0.65);
   --border-soft: rgba(120, 145, 187, 0.35);
   --text-primary: #e6eeff;
   --text-muted: #acc0e4;
-  --accent: #86ecb8;
-  --accent-strong: #8de9b7;
-  --gold: #ffbf6b;
+  --accent: #8fe6d1;
+  --accent-strong: #a2ead9;
+  --gold: #f0c38b;
 }
 
 [data-theme="light"] {
@@ -62,37 +62,42 @@ body {
 .bg-base {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 12%, rgba(20, 54, 96, 0.9) 0%, rgba(10, 20, 36, 0.95) 38%, var(--bg-main) 100%);
+  background:
+    radial-gradient(circle at 18% 16%, rgba(34, 74, 130, 0.62) 0%, rgba(34, 74, 130, 0) 32%),
+    radial-gradient(circle at 78% 18%, rgba(18, 122, 128, 0.22) 0%, rgba(18, 122, 128, 0) 24%),
+    radial-gradient(circle at 52% 100%, rgba(240, 195, 139, 0.08) 0%, rgba(240, 195, 139, 0) 34%),
+    linear-gradient(180deg, #07111b 0%, #050b13 52%, #03070d 100%);
 }
 
 .galaxy-haze {
   position: absolute;
   inset: -10% -20%;
-  background: radial-gradient(circle at 20% 30%, rgba(90, 140, 255, 0.25), transparent 55%),
-    radial-gradient(circle at 80% 20%, rgba(255, 140, 220, 0.18), transparent 50%),
-    radial-gradient(circle at 60% 80%, rgba(120, 255, 210, 0.18), transparent 55%);
-  filter: blur(18px);
-  opacity: 0.7;
-  animation: driftNebula 26s ease-in-out infinite alternate;
+  background:
+    radial-gradient(circle at 16% 30%, rgba(91, 158, 255, 0.18), transparent 48%),
+    radial-gradient(circle at 82% 18%, rgba(116, 242, 211, 0.14), transparent 44%),
+    radial-gradient(circle at 60% 82%, rgba(255, 204, 146, 0.12), transparent 46%);
+  filter: blur(24px);
+  opacity: 0.85;
+  animation: driftNebula 34s ease-in-out infinite alternate;
 }
 
 .starfield {
   position: absolute;
   inset: 0;
   background-image: radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 1px),
-    radial-gradient(rgba(120, 190, 255, 0.6) 1px, transparent 1px);
-  background-size: 42px 42px, 70px 70px;
+    radial-gradient(rgba(143, 230, 209, 0.45) 1px, transparent 1px);
+  background-size: 42px 42px, 72px 72px;
   background-position: 0 0, 20px 30px;
-  opacity: 0.35;
-  animation: moveStars 90s linear infinite;
+  opacity: 0.28;
+  animation: moveStars 120s linear infinite;
 }
 
 .comet {
   position: absolute;
   width: 160px;
   height: 2px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(140, 200, 255, 0.8), rgba(255, 255, 255, 0));
-  opacity: 0.45;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(145, 215, 255, 0.56), rgba(255, 255, 255, 0));
+  opacity: 0.24;
   filter: blur(0.4px);
 }
 
@@ -120,15 +125,15 @@ body {
 .aurora-a {
   top: -24vmax;
   left: -20vmax;
-  background: radial-gradient(circle, rgba(85, 184, 255, 0.9) 0%, rgba(85, 184, 255, 0) 64%);
-  animation: driftAuroraA 18s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgba(88, 180, 255, 0.78) 0%, rgba(88, 180, 255, 0) 64%);
+  animation: driftAuroraA 22s ease-in-out infinite alternate;
 }
 
 .aurora-b {
   right: -20vmax;
   bottom: -26vmax;
-  background: radial-gradient(circle, rgba(73, 255, 176, 0.8) 0%, rgba(73, 255, 176, 0) 66%);
-  animation: driftAuroraB 22s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgba(104, 227, 196, 0.72) 0%, rgba(104, 227, 196, 0) 66%);
+  animation: driftAuroraB 26s ease-in-out infinite alternate;
 }
 
 .bg-orb {
@@ -177,19 +182,19 @@ body {
 .cyber-grid {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(80, 120, 190, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(80, 120, 190, 0.07) 1px, transparent 1px);
-  background-size: 44px 44px;
-  opacity: 0.24;
-  animation: gridPulse 10s ease-in-out infinite;
+  background-image: linear-gradient(rgba(84, 118, 170, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(84, 118, 170, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.16;
+  animation: gridPulse 14s ease-in-out infinite;
 }
 
 .scanline {
   position: absolute;
   inset: -20% 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 46%, rgba(137, 198, 255, 0.1) 50%, rgba(255, 255, 255, 0) 54%);
-  animation: sweep 9s linear infinite;
-  opacity: 0.55;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 46%, rgba(137, 198, 255, 0.06) 50%, rgba(255, 255, 255, 0) 54%);
+  animation: sweep 12s linear infinite;
+  opacity: 0.28;
 }
 
 .room {
@@ -438,7 +443,7 @@ body {
   border: 0;
   border-radius: 999px;
   background: #ffffff;
-  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
   pointer-events: none;
   overflow: visible;
 }
@@ -514,21 +519,17 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 2px;
+  padding: 1.5px;
   background:
     linear-gradient(
       90deg,
-      rgba(255, 72, 140, 0.98),
-      rgba(255, 120, 70, 0.98),
-      rgba(255, 214, 92, 0.98),
-      rgba(82, 255, 168, 0.98),
-      rgba(76, 210, 255, 0.98),
-      rgba(111, 124, 255, 0.98),
-      rgba(201, 96, 255, 0.98),
-      rgba(255, 72, 140, 0.98)
+      rgba(97, 185, 255, 0.88),
+      rgba(143, 230, 209, 0.84),
+      rgba(240, 195, 139, 0.84),
+      rgba(97, 185, 255, 0.88)
     );
-  background-size: 300% 100%;
-  animation: panelOutlineFlow 4.8s linear infinite;
+  background-size: 220% 100%;
+  animation: panelOutlineFlow 8s linear infinite;
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
@@ -537,7 +538,7 @@ body {
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   mask-composite: exclude;
-  opacity: 0.88;
+  opacity: 0.72;
   pointer-events: none;
 }
 
@@ -547,11 +548,10 @@ body {
   inset: -10px;
   border-radius: inherit;
   background:
-    radial-gradient(circle at 12% 50%, rgba(255, 72, 140, 0.18), rgba(255, 72, 140, 0)),
-    radial-gradient(circle at 50% 50%, rgba(76, 210, 255, 0.16), rgba(76, 210, 255, 0)),
-    radial-gradient(circle at 88% 50%, rgba(201, 96, 255, 0.16), rgba(201, 96, 255, 0));
-  filter: blur(16px);
-  opacity: 0.62;
+    radial-gradient(circle at 20% 50%, rgba(97, 185, 255, 0.12), rgba(97, 185, 255, 0)),
+    radial-gradient(circle at 80% 50%, rgba(143, 230, 209, 0.1), rgba(143, 230, 209, 0));
+  filter: blur(14px);
+  opacity: 0.36;
   z-index: -1;
   pointer-events: none;
 }
@@ -977,15 +977,15 @@ p {
 }
 
 .projects-grid:hover .project-card {
-  opacity: 0.48;
-  filter: blur(1px) saturate(0.85);
-  transform: scale(0.985);
+  opacity: 0.72;
+  filter: saturate(0.92);
+  transform: scale(0.994);
 }
 
 .projects-grid:hover .project-card:hover {
   opacity: 1;
-  filter: blur(0) saturate(1);
-  transform: scale(1.02) translateY(-6px);
+  filter: saturate(1);
+  transform: scale(1.015) translateY(-4px);
 }
 
 .project-card {
@@ -1619,11 +1619,11 @@ p {
   }
 
   .lamp-message {
-    top: 170px;
+    top: 214px;
     left: 50%;
-    width: min(250px, calc(100% - 24px));
-    min-height: 102px;
-    padding: 0.8rem 0.8rem 0.75rem;
+    width: min(220px, calc(100% - 24px));
+    min-height: 88px;
+    padding: 0.7rem 0.72rem 0.68rem;
     transform: translateX(-50%);
   }
 
@@ -1645,13 +1645,22 @@ p {
   }
 
   .lamp-message::after {
-    left: 48px;
-    bottom: -18px;
-    width: 18px;
-    height: 14px;
+    left: 42px;
+    bottom: -16px;
+    width: 14px;
+    height: 11px;
     box-shadow:
-      -16px 16px 0 -7px #ffffff,
-      0 7px 12px rgba(0, 0, 0, 0.16);
+      -12px 12px 0 -6px #ffffff,
+      0 6px 10px rgba(0, 0, 0, 0.14);
+  }
+
+  .lamp-message strong {
+    font-size: 0.82rem;
+  }
+
+  .lamp-message span {
+    max-width: 170px;
+    font-size: 0.6rem;
   }
 
   .panel {
@@ -1691,6 +1700,40 @@ p {
 @media (max-width: 420px) {
   .page-content {
     padding-top: 250px;
+  }
+
+  .lamp-message {
+    top: 196px;
+    width: min(200px, calc(100% - 20px));
+    min-height: 82px;
+    padding: 0.62rem 0.65rem 0.6rem;
+  }
+
+  .lamp-message::before {
+    top: -8px;
+    left: 12px;
+    width: 34px;
+    height: 34px;
+    box-shadow:
+      26px -8px 0 3px #ffffff,
+      58px -11px 0 7px #ffffff,
+      92px -4px 0 3px #ffffff,
+      122px 8px 0 0 #ffffff,
+      -6px 18px 0 4px #ffffff,
+      6px 32px 0 -7px #ffffff,
+      40px 38px 0 -4px #ffffff,
+      78px 38px 0 3px #ffffff,
+      112px 26px 0 -6px #ffffff;
+  }
+
+  .lamp-message::after {
+    left: 36px;
+    bottom: -14px;
+    width: 12px;
+    height: 10px;
+    box-shadow:
+      -10px 10px 0 -6px #ffffff,
+      0 5px 9px rgba(0, 0, 0, 0.12);
   }
 }
 
