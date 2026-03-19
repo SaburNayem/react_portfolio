@@ -427,25 +427,18 @@ body {
   z-index: 14;
   display: grid;
   gap: 0.5rem;
-  width: min(420px, calc(100% - 40px));
-  min-height: 210px;
-  padding: 2rem 2.1rem 1.9rem;
+  width: min(430px, calc(100% - 40px));
+  min-height: 190px;
+  padding: 1.9rem 2rem 1.8rem;
   text-align: center;
   transform: translateY(-50%);
   align-content: center;
   justify-items: center;
-  color: #26190d;
-  border: 12px solid #161310;
-  border-radius: 38% 34% 36% 30% / 32% 36% 30% 34%;
-  background:
-    radial-gradient(circle at 18% 22%, rgba(255, 240, 191, 0.48) 0, rgba(255, 240, 191, 0) 18%),
-    radial-gradient(circle at 78% 28%, rgba(255, 238, 182, 0.32) 0, rgba(255, 238, 182, 0) 16%),
-    radial-gradient(circle at 48% 62%, rgba(109, 76, 24, 0.12) 0, rgba(109, 76, 24, 0) 38%),
-    linear-gradient(180deg, #e4be79 0%, #d7b16c 52%, #cda35f 100%);
-  box-shadow:
-    0 22px 46px rgba(0, 0, 0, 0.28),
-    inset 0 0 0 3px rgba(88, 56, 16, 0.14),
-    inset 0 18px 28px rgba(255, 233, 174, 0.16);
+  color: #111111;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.3);
   pointer-events: none;
   overflow: visible;
 }
@@ -453,32 +446,38 @@ body {
 .lamp-message::before {
   content: "";
   position: absolute;
-  inset: 12px;
-  border-radius: 39% 33% 37% 29% / 30% 35% 31% 35%;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(255, 243, 198, 0.22) 0, rgba(255, 243, 198, 0) 16%),
-    radial-gradient(circle at 82% 74%, rgba(116, 80, 31, 0.1) 0, rgba(116, 80, 31, 0) 16%),
-    radial-gradient(circle, rgba(86, 58, 17, 0.08) 0.8px, transparent 1px);
-  background-size: auto, auto, 12px 12px;
-  opacity: 0.78;
+  top: -22px;
+  left: 36px;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow:
+    66px -16px 0 6px #ffffff,
+    154px -26px 0 18px #ffffff,
+    246px -14px 0 8px #ffffff,
+    322px 18px 0 2px #ffffff,
+    -18px 40px 0 12px #ffffff,
+    8px 98px 0 -4px #ffffff,
+    110px 112px 0 0 #ffffff,
+    220px 114px 0 10px #ffffff,
+    304px 78px 0 -2px #ffffff;
   pointer-events: none;
+  z-index: -1;
 }
 
 .lamp-message::after {
   content: "";
   position: absolute;
-  left: -34px;
-  bottom: 42px;
-  width: 78px;
-  height: 70px;
-  border-left: 12px solid #161310;
-  border-bottom: 12px solid #161310;
-  border-radius: 0 0 0 58px;
-  background: linear-gradient(180deg, #d6ae69 0%, #c99f5a 100%);
-  clip-path: polygon(0 20%, 86% 0, 100% 100%, 12% 78%);
+  right: 52px;
+  bottom: -36px;
+  width: 44px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
   box-shadow:
-    0 12px 20px rgba(0, 0, 0, 0.18),
-    inset 0 0 0 2px rgba(88, 56, 16, 0.1);
+    42px 42px 0 -8px #ffffff,
+    0 12px 18px rgba(0, 0, 0, 0.18);
 }
 
 .lamp-message strong {
@@ -494,7 +493,7 @@ body {
   position: relative;
   z-index: 1;
   max-width: 360px;
-  color: rgba(48, 31, 12, 0.82);
+  color: rgba(17, 17, 17, 0.82);
   font-size: 1.05rem;
   line-height: 1.45;
 }
@@ -1421,21 +1420,36 @@ p {
     top: 210px;
     left: 50%;
     width: min(360px, calc(100% - 24px));
-    min-height: 190px;
-    padding: 1.8rem 1.4rem 1.6rem;
-    border-width: 10px;
+    min-height: 170px;
+    padding: 1.6rem 1.3rem 1.45rem;
     transform: translateX(-50%);
   }
 
+  .lamp-message::before {
+    top: -18px;
+    left: 28px;
+    width: 70px;
+    height: 70px;
+    box-shadow:
+      54px -14px 0 4px #ffffff,
+      126px -22px 0 14px #ffffff,
+      200px -10px 0 6px #ffffff,
+      260px 16px 0 0 #ffffff,
+      -14px 34px 0 8px #ffffff,
+      8px 82px 0 -8px #ffffff,
+      88px 92px 0 -4px #ffffff,
+      176px 92px 0 6px #ffffff,
+      252px 64px 0 -6px #ffffff;
+  }
+
   .lamp-message::after {
-    left: 50%;
-    bottom: -22px;
-    width: 68px;
-    height: 58px;
-    border-left-width: 10px;
-    border-bottom-width: 10px;
-    border-radius: 0 0 0 52px;
-    transform: translateX(-50%) rotate(-28deg);
+    right: 48px;
+    bottom: -28px;
+    width: 36px;
+    height: 26px;
+    box-shadow:
+      34px 34px 0 -7px #ffffff,
+      0 10px 16px rgba(0, 0, 0, 0.16);
   }
 
   .panel {
