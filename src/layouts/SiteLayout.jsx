@@ -155,6 +155,13 @@ export default function SiteLayout() {
           </Suspense>
         </div>
 
+        {!lampOn ? (
+          <div className="lamp-message" role="status" aria-live="polite">
+            <strong>Turn on the light</strong>
+            <span>Pull the rope to see the full portfolio.</span>
+          </div>
+        ) : null}
+
         <section className={`page-content ${lampOn ? "active" : ""}`}>
           <Outlet context={{ lampOn }} />
         </section>

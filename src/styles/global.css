@@ -420,6 +420,38 @@ body {
   gap: 14px;
 }
 
+.lamp-message {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  z-index: 14;
+  display: grid;
+  gap: 0.5rem;
+  width: min(460px, calc(100% - 32px));
+  padding: 1rem 1.25rem;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  color: #f7f3e8;
+  background: rgba(7, 10, 18, 0.56);
+  border: 1px solid rgba(255, 232, 188, 0.28);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+  pointer-events: none;
+}
+
+.lamp-message strong {
+  font-family: Rajdhani, sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lamp-message span {
+  color: rgba(255, 243, 219, 0.84);
+  font-size: 0.98rem;
+}
+
 .panel {
   border: 0;
   border-radius: 0;
@@ -1336,6 +1368,12 @@ p {
 
   .page-content {
     padding: 280px 12px 120px;
+  }
+
+  .lamp-message {
+    top: 42%;
+    width: min(360px, calc(100% - 24px));
+    padding: 0.9rem 1rem;
   }
 
   .panel {
