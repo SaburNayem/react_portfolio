@@ -1,5 +1,20 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { basicInfo, stats } from "../data/portfolioData";
+
+const heroItemVariants = {
+  hidden: { opacity: 0, y: 22, filter: "blur(10px)" },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.7,
+      delay,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  })
+};
 
 export default function Hero({ lampOn }) {
   const [imageError, setImageError] = useState(false);
@@ -7,11 +22,23 @@ export default function Hero({ lampOn }) {
   return (
     <section id="hero" className={`hero panel ${lampOn ? "visible" : "hidden"}`}>
       <div className="hero-grid">
-        <div className="hero-content">
-          <p className="tag">Developer Portfolio</p>
-          <h1>{basicInfo.fullName}</h1>
-          <h2>{basicInfo.title}</h2>
-          <p className="hero-bio">{basicInfo.shortBio}</p>
+        <motion.div
+          className="hero-content"
+          initial={false}
+          animate={lampOn ? "visible" : "hidden"}
+        >
+          <motion.p className="tag" custom={0.05} variants={heroItemVariants}>
+            Developer Portfolio
+          </motion.p>
+          <motion.h1 custom={0.12} variants={heroItemVariants}>
+            {basicInfo.fullName}
+          </motion.h1>
+          <motion.h2 custom={0.2} variants={heroItemVariants} className="hero-title">
+            {basicInfo.title}
+          </motion.h2>
+          <motion.p className="hero-bio" custom={0.3} variants={heroItemVariants}>
+            {basicInfo.shortBio}
+          </motion.p>
           <div className="hero-cta">
             <a className="btn primary" href="#projects">
               View Projects
@@ -28,10 +55,30 @@ export default function Hero({ lampOn }) {
               </div>
             ))}
           </div>
-        </div>
-        <div className="hero-profile">
+        </motion.div>
+        <motion.div
+          className="hero-profile"
+          initial={false}
+          animate={
+            lampOn
+              ? {
+                  opacity: 1,
+                  x: 0,
+                  scale: 1,
+                  filter: "blur(0px)"
+                }
+              : {
+                  opacity: 0.3,
+                  x: 20,
+                  scale: 0.97,
+                  filter: "blur(10px)"
+                }
+          }
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
           {!imageError ? (
             <img
+              className="hero-portrait"
               src={basicInfo.profilePhoto}
               alt={basicInfo.fullName}
               onError={() => setImageError(true)}
@@ -47,7 +94,7 @@ export default function Hero({ lampOn }) {
             <span>{basicInfo.email}</span>
             <span>{basicInfo.phone}</span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

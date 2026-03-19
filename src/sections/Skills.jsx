@@ -14,6 +14,12 @@ const stackIcons = [
   { icon: FaGithub, label: "GitHub" }
 ];
 
+const skillMeters = [
+  { title: "Programming Languages", value: 92 },
+  { title: "Frameworks & Technologies", value: 95 },
+  { title: "Tools", value: 88 }
+];
+
 export default function Skills({ lampOn }) {
   return (
     <section id="skills" className={`panel skills ${lampOn ? "visible" : "hidden"}`}>
@@ -21,6 +27,9 @@ export default function Skills({ lampOn }) {
       <div className="skills-grid">
         <div className="skills-card">
           <h4>Programming Languages</h4>
+          <div className={`energy-bar ${lampOn ? "active" : ""}`} style={{ "--energy-fill": `${skillMeters[0].value}%` }}>
+            <span />
+          </div>
           <div className="pill-list">
             {skills.languages.map((item) => (
               <span key={item} className="pill">
@@ -31,6 +40,9 @@ export default function Skills({ lampOn }) {
         </div>
         <div className="skills-card">
           <h4>Frameworks & Technologies</h4>
+          <div className={`energy-bar ${lampOn ? "active" : ""}`} style={{ "--energy-fill": `${skillMeters[1].value}%` }}>
+            <span />
+          </div>
           <div className="pill-list">
             {skills.frameworks.map((item) => (
               <span key={item} className="pill">
@@ -41,6 +53,9 @@ export default function Skills({ lampOn }) {
         </div>
         <div className="skills-card">
           <h4>Tools</h4>
+          <div className={`energy-bar ${lampOn ? "active" : ""}`} style={{ "--energy-fill": `${skillMeters[2].value}%` }}>
+            <span />
+          </div>
           <div className="pill-list">
             {skills.tools.map((item) => (
               <span key={item} className="pill">
