@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useMemo, useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import LightOverlay from "../components/LightOverlay";
 import BackgroundGrid from "../components/BackgroundGrid";
 import useLampToggle from "../hooks/useLampToggle";
@@ -10,6 +10,7 @@ const LampModel = lazy(() => import("../components/LampModel"));
 
 export default function SiteLayout() {
   const { lampOn, toggleLamp } = useLampToggle(false);
+  const location = useLocation();
   const [waveToken, setWaveToken] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
@@ -60,6 +61,33 @@ export default function SiteLayout() {
     window.addEventListener("resize", updateLayout);
     return () => window.removeEventListener("resize", updateLayout);
   }, []);
+
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll(".page-content > section"));
+
+    sections.forEach((section, index) => {
+      section.classList.add("section-motion");
+      section.style.setProperty("--section-delay", `${index * 90}ms`);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          }
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "0px 0px -10% 0px"
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, [location.pathname, lampOn]);
 
   return (
     <main className={`home-page ${layout}`} data-layout={layout}>

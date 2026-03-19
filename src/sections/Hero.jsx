@@ -16,6 +16,16 @@ const heroItemVariants = {
   })
 };
 
+const heroGroupVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.36
+    }
+  }
+};
+
 export default function Hero({ lampOn }) {
   const [imageError, setImageError] = useState(false);
 
@@ -39,22 +49,22 @@ export default function Hero({ lampOn }) {
           <motion.p className="hero-bio" custom={0.3} variants={heroItemVariants}>
             {basicInfo.shortBio}
           </motion.p>
-          <div className="hero-cta">
-            <a className="btn primary" href="#projects">
+          <motion.div className="hero-cta" variants={heroGroupVariants}>
+            <motion.a className="btn primary" href="#projects" variants={heroItemVariants}>
               View Projects
-            </a>
-            <a className="btn ghost" href={basicInfo.resume}>
+            </motion.a>
+            <motion.a className="btn ghost" href={basicInfo.resume} variants={heroItemVariants}>
               Download CV
-            </a>
-          </div>
-          <div className="hero-stats">
+            </motion.a>
+          </motion.div>
+          <motion.div className="hero-stats" variants={heroGroupVariants}>
             {stats.map((item) => (
-              <div key={item.label} className="stat-card">
+              <motion.div key={item.label} className="stat-card" variants={heroItemVariants}>
                 <strong>{item.value}</strong>
                 <span>{item.label}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
         <motion.div
           className="hero-profile"
@@ -89,11 +99,16 @@ export default function Hero({ lampOn }) {
               <small>Add your photo</small>
             </div>
           )}
-          <div className="hero-contact">
-            <span>{basicInfo.location}</span>
-            <span>{basicInfo.email}</span>
-            <span>{basicInfo.phone}</span>
-          </div>
+          <motion.div
+            className="hero-contact"
+            initial={false}
+            animate={lampOn ? "visible" : "hidden"}
+            variants={heroGroupVariants}
+          >
+            <motion.span variants={heroItemVariants}>{basicInfo.location}</motion.span>
+            <motion.span variants={heroItemVariants}>{basicInfo.email}</motion.span>
+            <motion.span variants={heroItemVariants}>{basicInfo.phone}</motion.span>
+          </motion.div>
         </motion.div>
       </div>
     </section>
