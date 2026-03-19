@@ -1,16 +1,16 @@
 import profilePhoto from "../assets/profile.png";
 
 export const basicInfo = {
-  fullName: "Sabur Nayem",
+  fullName: "Md Nayem Hossen",
   title: "Flutter Developer | Mobile App Developer",
   profilePhoto,
   shortBio:
     "I build high-performance Flutter apps with clean architecture and pixel-perfect UI.\nI love creating smooth UX, reliable APIs, and production-ready mobile products.",
   location: "Dhaka, Bangladesh",
-  email: "yourname@email.com",
-  phone: "+8801XXXXXXXXX",
+  email: "mdsabur9991@gmail.com",
+  phone: "01756817821",
   resume: "/resume.pdf",
-  website: "https://your-portfolio-link.com"
+  website: "https://github.com/SaburNayem"
 };
 
 export const aboutInfo = {
@@ -147,10 +147,10 @@ export const gallery = [
 ];
 
 export const contact = {
-  email: "yourname@email.com",
-  whatsapp: "+8801XXXXXXXXX",
+  email: "mdsabur9991@gmail.com",
+  whatsapp: "01756817821",
   linkedin: "https://linkedin.com/in/yourname",
-  github: "https://github.com/yourname",
+  github: "https://github.com/SaburNayem",
   facebook: "https://facebook.com/yourname",
   instagram: "https://instagram.com/yourname"
 };
