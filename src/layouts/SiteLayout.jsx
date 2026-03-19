@@ -4,6 +4,7 @@ import LightOverlay from "../components/LightOverlay";
 import BackgroundGrid from "../components/BackgroundGrid";
 import useLampToggle from "../hooks/useLampToggle";
 import { basicInfo } from "../data/portfolioData";
+import brandPhoto from "../assets/Screenshot_2026-03-19_at_10.19.34_AM-removebg-preview.png";
 
 const LampModel = lazy(() => import("../components/LampModel"));
 
@@ -76,7 +77,7 @@ export default function SiteLayout() {
 
         <header className="site-header">
           <div className="brand">
-            <span className="brand-mark">SN</span>
+            <img className="brand-mark" src={brandPhoto} alt={basicInfo.fullName} />
             <div>
               <strong>{basicInfo.fullName}</strong>
               <span>{basicInfo.title}</span>

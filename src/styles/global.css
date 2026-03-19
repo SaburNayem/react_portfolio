@@ -232,15 +232,15 @@ body {
 }
 
 .brand-mark {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  font-family: Rajdhani, sans-serif;
-  font-weight: 700;
-  color: #081018;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid rgba(255, 255, 255, 0.32);
   background: linear-gradient(135deg, #89f0c0, #a9e3ff);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
 }
 
 .brand strong {
