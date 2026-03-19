@@ -1,7 +1,9 @@
+import profilePhoto from "../assets/profile.png";
+
 export const basicInfo = {
   fullName: "Sabur Nayem",
   title: "Flutter Developer | Mobile App Developer",
-  profilePhoto: "/profile.jpg",
+  profilePhoto,
   shortBio:
     "I build high-performance Flutter apps with clean architecture and pixel-perfect UI.\nI love creating smooth UX, reliable APIs, and production-ready mobile products.",
   location: "Dhaka, Bangladesh",
