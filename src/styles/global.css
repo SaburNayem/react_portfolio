@@ -422,14 +422,14 @@ body {
 
 .lamp-message {
   position: absolute;
-  top: 180px;
-  left: calc(50% + 210px);
+  top: 165px;
+  left: calc(50% + 150px);
   z-index: 14;
   display: grid;
   gap: 0.5rem;
-  width: min(430px, calc(100% - 40px));
-  min-height: 190px;
-  padding: 1.9rem 2rem 1.8rem;
+  width: min(360px, calc(100% - 40px));
+  min-height: 150px;
+  padding: 1.35rem 1.5rem 1.25rem;
   text-align: center;
   transform: translateY(-50%);
   align-content: center;
@@ -446,22 +446,22 @@ body {
 .lamp-message::before {
   content: "";
   position: absolute;
-  top: -22px;
-  left: 36px;
-  width: 86px;
-  height: 86px;
+  top: -18px;
+  left: 28px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: #ffffff;
   box-shadow:
-    66px -16px 0 6px #ffffff,
-    154px -26px 0 18px #ffffff,
-    246px -14px 0 8px #ffffff,
-    322px 18px 0 2px #ffffff,
-    -18px 40px 0 12px #ffffff,
-    8px 98px 0 -4px #ffffff,
-    110px 112px 0 0 #ffffff,
-    220px 114px 0 10px #ffffff,
-    304px 78px 0 -2px #ffffff;
+    54px -14px 0 4px #ffffff,
+    126px -22px 0 14px #ffffff,
+    200px -10px 0 6px #ffffff,
+    258px 16px 0 0 #ffffff,
+    -14px 34px 0 8px #ffffff,
+    8px 76px 0 -8px #ffffff,
+    88px 88px 0 -4px #ffffff,
+    176px 88px 0 6px #ffffff,
+    248px 60px 0 -6px #ffffff;
   pointer-events: none;
   z-index: -1;
 }
@@ -469,22 +469,22 @@ body {
 .lamp-message::after {
   content: "";
   position: absolute;
-  right: 52px;
-  bottom: -36px;
-  width: 44px;
-  height: 32px;
+  left: 52px;
+  bottom: -30px;
+  width: 36px;
+  height: 26px;
   border-radius: 50%;
   background: #ffffff;
   box-shadow:
-    42px 42px 0 -8px #ffffff,
-    0 12px 18px rgba(0, 0, 0, 0.18);
+    -34px 34px 0 -7px #ffffff,
+    0 10px 16px rgba(0, 0, 0, 0.16);
 }
 
 .lamp-message strong {
   position: relative;
   z-index: 1;
   font-family: Rajdhani, sans-serif;
-  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-size: clamp(1.3rem, 2.3vw, 2rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -492,10 +492,10 @@ body {
 .lamp-message span {
   position: relative;
   z-index: 1;
-  max-width: 360px;
+  max-width: 300px;
   color: rgba(17, 17, 17, 0.82);
-  font-size: 1.05rem;
-  line-height: 1.45;
+  font-size: 0.9rem;
+  line-height: 1.35;
 }
 
 .panel {
@@ -1417,11 +1417,11 @@ p {
   }
 
   .lamp-message {
-    top: 210px;
+    top: 170px;
     left: 50%;
     width: min(360px, calc(100% - 24px));
-    min-height: 170px;
-    padding: 1.6rem 1.3rem 1.45rem;
+    min-height: 145px;
+    padding: 1.35rem 1.1rem 1.2rem;
     transform: translateX(-50%);
   }
 
@@ -1443,12 +1443,12 @@ p {
   }
 
   .lamp-message::after {
-    right: 48px;
-    bottom: -28px;
-    width: 36px;
-    height: 26px;
+    left: 48px;
+    bottom: -24px;
+    width: 30px;
+    height: 22px;
     box-shadow:
-      34px 34px 0 -7px #ffffff,
+      -28px 28px 0 -7px #ffffff,
       0 10px 16px rgba(0, 0, 0, 0.16);
   }
 
