@@ -421,11 +421,11 @@ body {
 }
 
 .panel {
-  border: 1px solid var(--border-soft);
-  border-radius: 14px;
-  padding: 14px;
-  background: var(--bg-panel);
-  backdrop-filter: blur(4px);
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  backdrop-filter: none;
   transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
 }
 
@@ -605,10 +605,7 @@ p {
 }
 
 .home-col {
-  border: 1px solid var(--border-soft);
-  border-radius: 14px;
-  padding: 1rem;
-  background: rgba(12, 26, 48, 0.7);
+  padding: 0;
   display: grid;
   gap: 0.8rem;
 }
@@ -647,10 +644,7 @@ p {
 }
 
 .stat-card {
-  padding: 0.75rem;
-  border-radius: 12px;
-  border: 1px solid var(--border-soft);
-  background: rgba(16, 30, 52, 0.6);
+  padding: 0.75rem 0;
   text-align: center;
 }
 
@@ -726,10 +720,7 @@ p {
 .service-card,
 .gallery-card,
 .testimonial-card {
-  border: 1px solid var(--border-soft);
-  border-radius: 14px;
-  padding: 0.9rem;
-  background: rgba(12, 26, 48, 0.7);
+  padding: 0.35rem 0;
 }
 
 .about-card h4,
@@ -775,10 +766,7 @@ p {
 .stack-card {
   display: grid;
   gap: 0.4rem;
-  padding: 0.75rem;
-  border-radius: 12px;
-  border: 1px solid var(--border-soft);
-  background: rgba(14, 32, 56, 0.7);
+  padding: 0.75rem 0;
   text-align: center;
   animation: float 4s ease-in-out infinite;
   animation-delay: var(--delay);
@@ -876,10 +864,7 @@ p {
 }
 
 .timeline-item {
-  border: 1px solid var(--border-soft);
-  border-radius: 14px;
-  padding: 0.9rem;
-  background: rgba(12, 26, 48, 0.7);
+  padding: 0.4rem 0 0.9rem;
 }
 
 .timeline-head {
@@ -916,23 +901,40 @@ p {
 }
 
 .achievement-card {
-  border: 1px solid var(--border-soft);
-  border-radius: 12px;
-  padding: 0.75rem;
-  background: rgba(16, 30, 52, 0.6);
+  padding: 0.5rem 0;
 }
 
 .gallery-preview {
   height: 140px;
-  border-radius: 12px;
+  border-radius: 0;
   background: linear-gradient(135deg, rgba(120, 210, 255, 0.4), rgba(255, 192, 120, 0.3));
-  border: 1px solid var(--border-soft);
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   padding: 0.5rem;
   color: var(--text-primary);
   font-size: 0.75rem;
+}
+
+.project-card,
+.skill-chip,
+.stat-card,
+.home-col,
+.about-card,
+.skills-card,
+.education-card,
+.cert-card,
+.service-card,
+.gallery-card,
+.testimonial-card,
+.stack-card,
+.timeline-item,
+.achievement-card {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .testimonial-card p {
@@ -1040,8 +1042,8 @@ p {
 }
 
 [data-layout="desktop"] .panel {
-  border-radius: 18px;
-  padding: 18px;
+  border-radius: 0;
+  padding: 0;
 }
 
 [data-layout="desktop"] .hero h1 {
@@ -1056,8 +1058,8 @@ p {
 }
 
 [data-layout="tablet"] .panel {
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: 0;
+  padding: 0;
 }
 
 [data-layout="tablet"] .home-header {
@@ -1083,8 +1085,8 @@ p {
 }
 
 [data-layout="mobile"] .panel {
-  border-radius: 14px;
-  padding: 14px;
+  border-radius: 0;
+  padding: 0;
 }
 
 [data-layout="mobile"] .hero h1 {
@@ -1334,7 +1336,7 @@ p {
   }
 
   .panel {
-    padding: 12px;
+    padding: 0;
   }
 
   h3 {
