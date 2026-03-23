@@ -87,6 +87,10 @@ export default function SiteLayout() {
     return () => observer.disconnect();
   }, [location.pathname, lampOn]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.pathname]);
+
   return (
     <main className={`home-page ${layout}`} data-layout={layout}>
       <BackgroundGrid />
