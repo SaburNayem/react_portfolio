@@ -1,4 +1,4 @@
-import { FaLaravel, FaReact, FaGithub } from "react-icons/fa";
+import { FaLaravel, FaReact } from "react-icons/fa";
 import { SiDart, SiFirebase, SiNestjs, SiFlutter, SiJavascript, SiPython } from "react-icons/si";
 import { skills } from "../data/portfolioData";
 
@@ -11,7 +11,8 @@ const stackIcons = [
   { icon: SiFirebase, label: "Firebase" },
   { icon: FaReact, label: "React" },
   { icon: SiPython, label: "Python" },
-  { icon: FaGithub, label: "GitHub" }
+  { icon: FaReact, label: "React" },
+  { icon: SiPython, label: "Python" }
 ];
 
 const skillMeters = [
@@ -23,7 +24,7 @@ const skillMeters = [
 export default function Skills({ lampOn }) {
   return (
     <section id="skills" className={`panel skills ${lampOn ? "visible" : "hidden"}`}>
-      <h3>Skills</h3>
+      <h3>Skills & Tech Stack</h3>
       <div className="skills-grid">
         <div className="skills-card">
           <h4>Programming Languages</h4>

@@ -1,10 +1,8 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import SiteLayout from "./layouts/SiteLayout";
 import Home from "./pages/Home";
-import BasicPage from "./pages/BasicPage";
 import AboutPage from "./pages/AboutPage";
 import SkillsPage from "./pages/SkillsPage";
-import StackPage from "./pages/StackPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ExperiencePage from "./pages/ExperiencePage";
 import EducationPage from "./pages/EducationPage";
@@ -22,10 +20,8 @@ function App() {
       <Routes>
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/basic" element={<BasicPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/stack" element={<StackPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/education" element={<EducationPage />} />

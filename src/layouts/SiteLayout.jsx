@@ -19,10 +19,8 @@ export default function SiteLayout() {
   const navLinks = useMemo(
     () => [
       { label: "Hero", to: "/" },
-      { label: "Basic", to: "/basic" },
       { label: "About", to: "/about" },
       { label: "Skills", to: "/skills" },
-      { label: "Stack", to: "/stack" },
       { label: "Projects", to: "/projects" },
       { label: "Experience", to: "/experience" },
       { label: "Education", to: "/education" },
