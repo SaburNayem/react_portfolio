@@ -18,7 +18,7 @@ export default function SiteLayout() {
 
   const navLinks = useMemo(
     () => [
-      { label: "Hero", to: "/" },
+      { label: "Profile", to: "/" },
       { label: "About", to: "/about" },
       { label: "Skills", to: "/skills" },
       { label: "Projects", to: "/projects" },
@@ -102,13 +102,13 @@ export default function SiteLayout() {
         </div>
 
         <header className="site-header">
-          <div className="brand">
+          <NavLink className="brand" to="/">
             <img className="brand-mark" src={brandPhoto} alt={basicInfo.fullName} />
             <div>
               <strong>{basicInfo.fullName}</strong>
               <span>{basicInfo.title}</span>
             </div>
-          </div>
+          </NavLink>
           <nav className="site-nav">
             {navLinks.map((item) => (
               <NavLink
