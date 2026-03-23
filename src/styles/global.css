@@ -254,7 +254,7 @@ body {
   border: 0;
   border-bottom: 1px solid var(--border-soft);
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 1.2rem;
   backdrop-filter: blur(12px);
@@ -273,6 +273,9 @@ body {
   align-items: center;
   gap: 0.75rem;
   transition: transform 0.22s ease, filter 0.22s ease;
+  text-decoration: none;
+  color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .brand:hover {
@@ -295,11 +298,19 @@ body {
 .brand strong {
   display: block;
   font-size: 0.95rem;
+  text-decoration: none;
 }
 
 .brand span {
   font-size: 0.8rem;
   color: var(--text-muted);
+  text-decoration: none;
+}
+
+.brand div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
 }
 
 .site-nav {
@@ -311,6 +322,8 @@ body {
   overflow-x: auto;
   padding: 0.1rem 0.35rem;
   scrollbar-width: none;
+  min-width: 0;
+  scroll-behavior: smooth;
 }
 
 .site-nav::-webkit-scrollbar {
@@ -400,6 +413,10 @@ body {
 }
 
 [data-layout="desktop"] .nav-shift {
+  display: inline-flex;
+}
+
+[data-layout="tablet"] .nav-shift {
   display: inline-flex;
 }
 
