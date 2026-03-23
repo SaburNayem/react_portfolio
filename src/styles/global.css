@@ -344,6 +344,26 @@ body {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
 }
 
+.nav-shift {
+  display: none;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.nav-shift-btn {
+  border: 1px solid var(--border-soft);
+  background: transparent;
+  color: var(--text-primary);
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
 .header-actions {
   display: flex;
   gap: 0.6rem;
@@ -377,6 +397,10 @@ body {
 
 [data-layout="desktop"] .menu-toggle {
   display: none;
+}
+
+[data-layout="desktop"] .nav-shift {
+  display: inline-flex;
 }
 
 .burger,

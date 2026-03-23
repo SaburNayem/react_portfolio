@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import LightOverlay from "../components/LightOverlay";
 import BackgroundGrid from "../components/BackgroundGrid";
@@ -15,6 +15,7 @@ export default function SiteLayout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
   const [layout, setLayout] = useState("desktop");
+  const navRef = useRef(null);
 
   const navLinks = useMemo(
     () => [
@@ -38,6 +39,13 @@ export default function SiteLayout() {
   const onToggleLamp = () => {
     toggleLamp();
     setWaveToken((prev) => prev + 1);
+  };
+
+  const scrollNavBy = (distance) => {
+    if (!navRef.current) {
+      return;
+    }
+    navRef.current.scrollBy({ left: distance, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -113,7 +121,7 @@ export default function SiteLayout() {
               <span>{basicInfo.title}</span>
             </div>
           </NavLink>
-          <nav className="site-nav">
+          <nav className="site-nav" ref={navRef}>
             {navLinks.map((item) => (
               <NavLink
                 key={item.to}
@@ -125,6 +133,14 @@ export default function SiteLayout() {
               </NavLink>
             ))}
           </nav>
+          <div className="nav-shift">
+            <button type="button" className="nav-shift-btn" onClick={() => scrollNavBy(-220)}>
+              ◀
+            </button>
+            <button type="button" className="nav-shift-btn" onClick={() => scrollNavBy(220)}>
+              ▶
+            </button>
+          </div>
           <div className="header-actions">
             <button
               className="theme-toggle"
