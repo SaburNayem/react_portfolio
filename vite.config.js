@@ -3,5 +3,9 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   base: "/react_portfolio/",
-  plugins: [react()]
+  plugins: [react()],
+  build: {
+    outDir: "docs",
+    emptyOutDir: true
+  }
 });
